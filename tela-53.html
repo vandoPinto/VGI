@@ -1,0 +1,88 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            3</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        INDICADORES DE MONITORAMENTO DA APS: APLICABILIDADE PRÁTICA</p>
+</div>
+<div style="margin-top: 35px;margin-left: 40px;width: 808px;">
+    <p style="color: #FFA800;font-size: 20px;font-weight: bolder;">Mas você sabe o que é um indicador de saúde?</p>
+    <p>Antes de falarmos sobre indicadores de saúde, precisamos definir o que é saúde. </p>
+    <p>Por seu caráter multidimensional, o
+        conceito de saúde deve ser examinado segundo diferenças culturais e teóricas, reconhecendo que é dependente
+        do período
+        histórico e do lugar em que se estabelece a definição (ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE, 2018). </p>
+    <p>Clique nas imagens e
+        conheça os dois principais conceitos de saúde utilizados no Brasil.</p>
+    <div style="margin-left: 182px;margin-top: 38px;">
+        <img id="botao_1" src="recursos/imgs/img-slide-53-1.jpg" style="width: 204px;">
+        <img id="botao_2" src="recursos/imgs/img-slide-53-2.jpg" style="width: 180px;margin-left: 126px;">
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #1B8790 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">ORGANIZAÇÃO MUNDIAL DE SAÚDE</p>
+                    <p style="color: white;">Saúde é o estado de completo bem-estar físico, mental e social e não
+                        somente ausência de afecções e enfermidades.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #1B8790 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">8ª CONFERÊNCIA NACIONAL DE SAÚDE</p>
+                    <p style="color: white;">Saúde é resultante das condições de alimentação, habitação, educação,
+                        renda, meio ambiente, trabalho, transporte,
+                        emprego, lazer, liberdade, acesso e posse da terra e acesso a serviços de saúde.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

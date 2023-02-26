@@ -1,0 +1,98 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+</div>
+<div style="margin-top: 47px;margin-left: 40px;width: 808px;">
+    <p>A operacionalização do SISAB é feita por meio da estratégia do Departamento de Atenção Básica (DAB/SAS/MS),
+        denominada
+        e-SUS Atenção Básica (e-SUS AB). O e-SUS AB é composto por dois sistemas de software, que instrumentalizam a
+        coleta dos
+        dados que serão inseridos no SISAB (BRASIL, 2013). </p>
+    <p>Clique nos instrumentos para conhecê-los.</p>
+    <img src="recursos/imgs/img-slide-46.svg" style="margin-top: 51px;margin-left: 105px;height: 159px;">
+    <div>
+        <div id="botao_1"
+            style="position: absolute;top: 292px;left: 187px;width: 270px;height: 80px;">
+        </div>
+        <div id="botao_2"
+            style="position: absolute;top: 292px;left: 467px;width: 270px;height: 80px;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #1B8790 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">COLETA DE DADOS SIMPLIFICADO (CDS)</p>
+                    <p style="color: white;">Composto por fichas para o registro de informações das ações realizadas
+                        pelas equipes de Atenção Básica, esse sistema é
+                        utilizado principalmente nos serviços de saúde que não dispõem de sistema informatizado para
+                        utilização rotineira no
+                        trabalho. Seu principal diferencial em relação ao SIAB é a individualização dos dados por
+                        cidadão.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #294667 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">PRONTUÁRIO ELETRÔNICO DO CIDADÃO (PEC)</p>
+                    <p style="color: white;">Formulado para atender às equipes de AB lotadas em UBS parcialmente ou
+                        totalmente informatizadas, esse sistema é usado
+                        para inserir os registros clínicos dos atendimentos e também as fichas de CDS preenchidas pela
+                        equipe em seu processo de
+                        trabalho. Funciona em cenários com ou sem conexão com internet, e realiza suporte clínico com
+                        uma tecnologia avançada.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

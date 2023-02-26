@@ -1,0 +1,86 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+</div>
+<div style="margin-top: 45px;margin-left: 40px;width: 808px;">
+    <p style="color: #FFA800;font-size: 20px;font-weight: bolder;">Sistema de Informação de Agravos de Notificação
+        (Sinan)</p>
+    <p>Historicamente, a prática de vigilância se limitava ao monitoramento das doenças transmissíveis, tendo como
+        fonte a
+        notificação compulsória de casos. As doenças de notificação compulsória eram aquelas evitáveis por
+        imunização, as
+        transmitidas por vetores, a tuberculose e a hanseníase (BRASIL, 2009b). </p>
+    <p>Após a implantação do SUS e diante dos já
+        avançados recursos computacionais disponíveis e da demanda crescente por informações úteis e oportunas como
+        subsídio
+        indispensável para as atividades de vigilância epidemiológica, foi criado um dos principais sistemas de
+        informação para
+        a vigilância em saúde, o Sistema de Informação de Agravos de Notificação (Sinan). </p>
+    <p>Clique na imagem e conheça mais sobre
+        esse sistema.</p>
+    <img id="botao_1" src="recursos/imgs/img-slide-36.png" style="margin-top: 30px;margin-left: 182px;">
+    <div class="jan" id="janela_1">
+        <div
+            style="width: 743px;height: 211px;background: #0D536A 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 150px;left: 80px;align-items: center;justify-content: space-evenly;">
+            <div
+                style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                <p style="color: white;">O Sinan foi concebido e desenvolvido em 1993, com o objetivo de padronizar a
+                    coleta e o processamento dos dados sobre
+                    agravos de notificação em todo o território nacional, fornecendo informações para a análise do
+                    perfil da morbidade nos
+                    níveis municipal, estadual e federal.</p>
+                <p style="color: white;">Tal sistema é hierarquizado coerentemente com a organização do SUS e
+                    suficientemente ágil para viabilizar análises de situações de saúde em curtos espaços de tempo. É
+                    por meio dele que
+                    obtemos as informações sobre as doenças de notificação compulsória e os agravos de interesse, desde
+                    as unidades locais
+                    até o Ministério da Saúde, passando pelas secretarias municipais e estaduais de saúde (BRASIL,
+                    2009b).</p>
+            </div>
+            <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

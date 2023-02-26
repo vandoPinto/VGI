@@ -1,0 +1,98 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 550px;">
+        TRANSFORMAÇÃO DE DADOS EM INFORMAÇÕES EM SAÚDE NA APS: IMPORTÂNCIA PARA VIGILÂNCIA</p>
+</div>
+<div style="margin-top: 35px;margin-left: 34px;width: 823px;">
+    <p>Além da diferença entre dado e informação, precisamos compreender que existem diferentes tipos de dados.</p>
+    <p>Clique para
+        conhecê-los.</p>
+    <div>
+        <img src="recursos/imgs/img-slide-17.svg" style="width: 600px;margin-left: 78px;">
+    </div>
+    <p>Para ficar mais claro, os dados primários podem ser obtidos pela equipe de saúde em uma vista domiciliar ou
+        por meio do
+        prontuário do paciente. </p>
+    <p>Por sua vez, os dados secundários são aqueles provenientes de sistemas de informação, por
+        exemplo, o número de casos de hanseníase no Distrito Federal notificados em 2020 no sistema de informação de
+        agravos de
+        notificação (SINAN).</p>
+    <div>
+        <div id="botao_1"
+            style="position: absolute;top: 190px;left: 157px;width: 270px;height: 80px;">
+        </div>
+        <div id="botao_2"
+            style="position: absolute;top: 190px;left: 441px;width: 270px;height: 80px;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #1B8790 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">DADOS PRIMÁRIOS</p>
+                    <p style="color: white;">Dados provenientes de coleta realizada de forma direta pela equipe.<br> A
+                        equipe determina quais dados serão coletados na
+                        população.<br> A utilização de dados primários implica sistema de vigilância ativa.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #294667 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">DADOS SECUNDÁRIOS</p>
+                    <p style="color: white;">Dados preexistentes, provenientes de sistemas de informação.<br> Dados
+                        coletados para outros propósitos que não os da
+                        equipe.<br> A utilização de dados secundários implica sistema de vigilância passiva.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

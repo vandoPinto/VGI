@@ -1,0 +1,106 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+</div>
+<div>
+    <div style="margin-left: 34px;margin-top: 35px;width: 808px;">
+        <p>Clique nos ícones para conhecer os princípios da PNIIS (BRASIL, 2021) que destacamos para o nosso curso.
+        </p>
+        <div style="display: flex;justify-content: space-between;margin-left: 28px;margin-top: 38px;">
+            <div id="botao_1"
+                style="width: 372px; height: 126px; background: 0% 0% no-repeat padding-box padding-box rgb(13, 83, 106); border-radius: 5px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                <p style="font: normal normal bold 16px/18px Poppins;color: #FFFFFF;text-align: center;width: 310px;">
+                    FOMENTO À GESTÃO E À PRODUÇÃO DOS DADOS E INFORMAÇÃO EM SAÚDE</p>
+            </div>
+            <div id="botao_2"
+                style="width: 372px; height: 126px; background: 0% 0% no-repeat padding-box padding-box rgb(13, 83, 106); border-radius: 5px; display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                <p style="font: normal normal bold 16px/18px Poppins;color: #FFFFFF;text-align: center;width: 340px;">
+                    DESCENTRALIZAÇÃO DOS PROCESSOS DE PRODUÇÃO E DISSEMINAÇÃO DOS DADOS E DA INFORMAÇÃO EM SAÚDE</p>
+            </div>
+        </div>
+        <p style="margin-top: 38px;">Apesar de ser uma política nova, alguns especialistas já apontaram problemas no
+            seu
+            texto. Entre eles, a questão da
+            interoperabilidade, que seria a comunicação entre os vários sistemas de informação que o SUS tem. </p>
+        <p>A PNIIS parte do
+            princípio de que existe essa comunicação, mas, na prática, os SIS não são interoperados. No dia a dia do
+            serviço na APS,
+            o técnico tem de alimentar vários sistemas diferentes. Não basta incluir determinado dado em um sistema
+            e esperar que
+            ele alimente o restante, porque eles não são interoperáveis (ANTUNES, 2021).</p>
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #294667 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">FOMENTO À GESTÃO E À PRODUÇÃO DOS DADOS E INFORMAÇÃO EM SAÚDE</p>
+                    <p style="color: white;">O fomento à gestão e à produção de dados e informação em saúde, como
+                        elementos capazes de gerar conhecimento, na
+                        totalidade das ações de atenção, gestão, auditoria, pesquisa, controle e participação
+                        social, de modo a fundamentar
+                        ações de vigilância em saúde e formulação de políticas públicas.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 173px;background: #294667 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;width: 404px;text-align: center;">DESCENTRALIZAÇÃO DOS PROCESSOS DE
+                        PRODUÇÃO E DISSEMINAÇÃO DOS DADOS E DA INFORMAÇÃO EM SAÚDE</p>
+                    <p style="color: white;">A descentralização dos processos de produção e disseminação dos dados e
+                        da informação em saúde, para atender às
+                        necessidades de compartilhamento de dados e às especificidades regionais e locais.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

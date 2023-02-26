@@ -1,0 +1,71 @@
+<style>
+    .parent {
+        width: 898px;
+        overflow-x: hidden;
+        float: left;
+        margin-left: -14px;
+    }
+
+    .child {
+        width: 1000px;
+        height: 492px;
+        float: left;
+        cursor: pointer;
+    }
+</style>
+<div style="display: flex;">
+    <div style="width: 622px;height: 490px;right: 1px;background-color: #0d526a;padding-left: 40px;padding-top: 10px;">
+        <div>
+            <p style="position: absolute;color: white;margin-left: 20px;margin-top: 26px;font-size: 12px;">
+                TÓPICO<strong>
+                    2</strong></p>
+            <p style="position: absolute;color: white;margin-left: 90px;margin-top: 20px;font-size: 11px;width: 190px;">
+                SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+        </div>
+        <p style="color: white;margin-top: 90px;width: 240px;margin-left: 20px;">Entre os anos 70 e o período
+            atual, foram criados vários SIS, com o objetivo de favorecer a disponibilidade de
+            informações de saúde em tempo oportuno e contribuir para a análise da situação de saúde nos âmbitos
+            local, estadual e
+            nacional (FERREIRA <i>et al.</i>, 2020). </p>
+        <p style="color: white;width: 240px;margin-left: 20px;">Entre os sistemas de informação nacionais,
+            destacaremos neste tópico o Sistema de
+            Informação de Agravos de Notificação (Sinan) e o Sistema de Informação em Saúde Para a Atenção Básica
+            (SISAB), os quais
+            são referências e fundamentais para a vigilância e gestão da informação na Atenção Primária à Saúde.</p>
+        <div style="position: absolute;height: 300px;width: 3px;background-color: #FFA800;top: 98px;left: 377px;">
+        </div>
+    </div>
+    <div class="parent">
+        <div class="child">
+            <img src="recursos/imgs/img-slide-35.svg" style="margin-left: 1px;height: 500px;">
+        </div>
+    </div>
+</div>
+<script>
+    $(() => {
+        const slider = document.querySelector('.parent');
+        let mouseDown = false;
+        let startX, scrollLeft;
+
+        let startDragging = function (e) {
+            mouseDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+        let stopDragging = function (event) {
+            mouseDown = false;
+        };
+
+        slider.addEventListener('mousemove', (e) => {
+            e.preventDefault();
+            if (!mouseDown) { return; }
+            const x = e.pageX - slider.offsetLeft;
+            const scroll = x - startX;
+            slider.scrollLeft = scrollLeft - scroll;
+        });
+
+        slider.addEventListener('mousedown', startDragging, false);
+        slider.addEventListener('mouseup', stopDragging, false);
+        slider.addEventListener('mouseleave', stopDragging, false);
+    })
+</script>

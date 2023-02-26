@@ -1,0 +1,115 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 550px;">
+        TRANSFORMAÇÃO DE DADOS EM INFORMAÇÕES EM SAÚDE NA APS: IMPORTÂNCIA PARA VIGILÂNCIA</p>
+</div>
+<div style="margin-top: 34px;margin-left: 40px;width: 808px;">
+    <p style="color: #FFA800;font-size: 20px;font-weight: bolder;">O que é território?</p>
+    <p>Clique nos ícones para relembrar o conceito de território e sua importância.</p>
+    <div style="margin-left: 75px;width: 680px;display: flex;justify-content: space-between;margin-top: 56px;">
+        <img id="botao_1" src="recursos/imgs/img1-slide-12.svg" style="width: 154px; cursor: pointer;">
+        <img id="botao_2" src="recursos/imgs/img3-slide-12.svg" style="width: 155px;cursor: pointer;">
+        <img id="botao_3" src="recursos/imgs/img2-slide-12.svg" style="width: 155px;cursor: pointer;">
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 138px;background: #0D536A 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">Território é a unidade geográfica única, de construção descentralizada
+                        do
+                        SUS na execução das ações estratégicas
+                        destinadas à vigilância, promoção, prevenção, proteção e recuperação da saúde (BRASIL,
+                        2017).
+                    </p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 211px;background: #0D536A 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 160px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">É um conceito da geografia que nos ajuda a descrever e entender as
+                        formas
+                        de viver no planeta Terra, conhecer seus
+                        habitantes e as relações que estabelecem entre si para poderem viver e se reproduzir
+                        (MONKEN;
+                        GONDIM, 2016). </p>
+                    <p style="color: white;">Precisa ser
+                        compreendido como um espaço vivo, geograficamente delimitado e ocupado por população
+                        específica,
+                        instituída por
+                        identidades comuns, sejam elas culturais, sociais ou outras (MONKEN; GONDIM, 2016; RIBEIRO
+                        <i>
+                            et
+                            al.
+                        </i>, 2017).</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 138px;background: #0D536A 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">O território é aquele que vai além das questões geográficas, incluindo
+                        o
+                        conjunto de relações sociais, comportamentais e
+                        psicológicas que o indivíduo estabelece. É o espaço vivo e dinâmico, em que as pessoas
+                        estudam,
+                        trabalham, estabelecem
+                        relações e redes sociais, mantêm estilos de vida, hábitos, crenças e sua cultura (BRASIL,
+                        2018a;
+                        MONKEN; GONDIM, 2016).</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

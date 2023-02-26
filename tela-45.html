@@ -1,0 +1,55 @@
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+</div>
+<div>
+    <div style="display: flex;">
+        <div style="width: 381px;margin-left: 40px;margin-top: 107px;">
+            <p>Por meio do SISAB, é possível obter informações da situação sanitária e de saúde da população do
+                território por meio de
+                relatórios de saúde, bem como de relatórios de indicadores de saúde por estado, município, região de
+                saúde e equipe.</p>
+            <p>Clique no quadro e observe as principais diferenças nas características entre o SIAB e o SISAB
+                (GOMES,
+                2015).</p>
+        </div>
+        <div class="animate__animated animate__backInRight">
+            <img id="botao_1" src="recursos/imgs/img-slide-45.svg"
+                style="width: 352px; margin-left: 50px; margin-top: 63px; cursor: pointer;">
+        </div>
+        <img id="janela_1" src="recursos/imgs/img-slide-45-janela.svg"
+            style="width: 770px; top: 27px; left: 63px; position: absolute; display: none;">
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

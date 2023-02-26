@@ -1,0 +1,121 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        SISTEMAS DE INFORMAÇÃO NA APS: HISTÓRICO E MOMENTO ATUAL</p>
+</div>
+<div style="margin-top: 55px;margin-left: 40px;width: 808px;">
+    <p style="color: #FFA800;font-size: 20px;font-weight: bolder;">Como os SIS produzem informações?</p>
+    <p>Para que, de fato, o SIS possa atingir seu objetivo, é necessário que algumas etapas sejam seguidas para
+        produção da
+        informação (CUNHA; VARGENS, 2017). </p>
+    <p>Clique sobre as etapas e conheça o que cada uma representa.</p>
+    <div style="margin-left: 45px;width: 670px;display: flex;justify-content: space-between;margin-top: 40px;">
+        <img src="recursos/imgs/img-slide-32.svg">
+    </div>
+    <div>
+        <div id="botao_1" style="position: absolute;top: 304px;left: 127px;width: 121px;height: 60px;">
+        </div>
+        <div id="botao_2" style="position: absolute;top: 304px;left: 255px;width: 134px;height: 60px;">
+        </div>
+        <div id="botao_3" style="position: absolute;top: 304px;left: 401px;width: 171px;height: 60px;">
+        </div>
+        <div id="botao_4" style="position: absolute;top: 304px;left: 584px;width: 121px;height: 60px;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">COLETA</p>
+                    <p style="color: white;">A coleta de dado é a etapa inicial da produção da informação. Termina com o
+                        registro do que foi coletado, que pode ser
+                        feito em formulário de papel ou em plataforma eletrônica.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #506D8F 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">CODIFICAÇÃO</p>
+                    <p style="color: white;">A codificação é a etapa que se segue à coleta e ao registro do dado.
+                        Significa transformar todo dado registrado em
+                        valores previamente definidos (numéricos ou letras).</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #1B8992 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">PROCESSAMENTO</p>
+                    <p style="color: white;">A etapa de processamento do dado inclui classificação e agrupamento de modo
+                        sistemático, em categorias ou em classes
+                        predeterminadas.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_4" style="cursor: pointer; display: none;">
+            <div
+                style="width: 743px;height: 124px;background: #108141 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">DIVULGAÇÃO</p>
+                    <p style="color: white;">O formato e a linguagem da divulgação podem variar conforme o perfil de
+                        quem demanda e utiliza (população em geral ou
+                        segmentos técnicos e operacionais específicos).</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;">VIGILÂNCIA E GESTÃO DA INFORMAÇÃO NA
+        APS/ESF</p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
